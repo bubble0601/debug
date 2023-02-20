@@ -1,9 +1,6 @@
-import styles from './index.module.css'
-
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <main className={styles.main}></main>
-    </div>
-  )
-}
+export default () => (
+  <div>
+    <h1>Index</h1>
+    <a href="/image/device-orientation">Device orientation</a>
+  </div>
+)
