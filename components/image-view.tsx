@@ -60,6 +60,7 @@ export const ImageView = memo(
 
     useEffect(() => {
       if (!file) return
+
       if (compress) {
         const reduce = new ImageBlobReduce()
         reduce.toBlob(file, { max: 1920 }).then((resized) => {
@@ -86,6 +87,10 @@ export const ImageView = memo(
         })
       } else {
         setUrl(URL.createObjectURL(file))
+      }
+
+      return () => {
+        if (url) URL.revokeObjectURL(url)
       }
     }, [file])
 

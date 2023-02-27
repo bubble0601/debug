@@ -1,6 +1,11 @@
 export default () => (
   <div>
     <h1>Index</h1>
-    <a href="/image/device-orientation">Device orientation</a>
+    <p>
+      <a href="/image/device-orientation">Device orientation</a>
+    </p>
+    <p>
+      <a href="/image/exif">Exif</a>
+    </p>
   </div>
 )
