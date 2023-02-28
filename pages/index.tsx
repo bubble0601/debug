@@ -7,5 +7,8 @@ export default () => (
     <p>
       <a href="/image/exif">Exif</a>
     </p>
+    <p>
+      <a href="/camera">Camera</a>
+    </p>
   </div>
 )
