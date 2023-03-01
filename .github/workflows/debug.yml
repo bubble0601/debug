@@ -9,5 +9,5 @@ jobs:
     name: Debug job
     runs-on: ubuntu-latest
     steps:
-      - name: Step1
-        run: echo "${{ github }}"
+      - name: Dump
+        uses: crazy-max/ghaction-dump-context@v2
