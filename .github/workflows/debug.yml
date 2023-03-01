@@ -1,0 +1,13 @@
+name: Debug workflow
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  job1:
+    name: Debug job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step1
+        run: echo "${{ github }}"
