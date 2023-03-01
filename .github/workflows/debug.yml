@@ -7,6 +7,7 @@ on:
 jobs:
   job1:
     name: Debug job
+    if: github.event.label.name == 'question'
     runs-on: ubuntu-latest
     steps:
       - name: Dump
