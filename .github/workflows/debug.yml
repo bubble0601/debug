@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Dump
         uses: crazy-max/ghaction-dump-context@v2
+      - name: pwdls
+        run: pwd && ls -a
       - name: Hello
         run: .github/run.sh
       # - name: 'Post Comment (End)'
