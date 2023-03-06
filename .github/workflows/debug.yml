@@ -12,17 +12,19 @@ jobs:
     steps:
       - name: Dump
         uses: crazy-max/ghaction-dump-context@v2
-      - name: 'Post Comment (End)'
-        uses: actions/github-script@v4
-        env:
-          MESSAGE: |
-            Job finished
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: process.env.MESSAGE
-            })
+      - name: Hello
+        run: bash ./.github/run.sh
+      # - name: 'Post Comment (End)'
+      #   uses: actions/github-script@v4
+      #   env:
+      #     MESSAGE: |
+      #       Job finished
+      #   with:
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
+      #     script: |
+      #       github.issues.createComment({
+      #         issue_number: context.issue.number,
+      #         owner: context.repo.owner,
+      #         repo: context.repo.repo,
+      #         body: process.env.MESSAGE
+      #       })
