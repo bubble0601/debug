@@ -10,5 +10,11 @@ export default () => (
     <p>
       <a href="/camera">Camera</a>
     </p>
+    <p>
+      <a href="/draft">Editor</a>
+    </p>
+    <p>
+      <a href="/recoil">Recoil</a>
+    </p>
   </div>
 )

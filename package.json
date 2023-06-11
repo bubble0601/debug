@@ -17,6 +17,7 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "browser-image-compression": "^2.0.0",
+    "draft-js": "^0.11.7",
     "exif-js": "^2.3.0",
     "exif-parser": "^0.1.12",
     "exif-reader": "^1.1.0",
@@ -26,9 +27,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^8.0.0-alpha.4",
+    "recoil": "^0.7.7",
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@types/draft-js": "^0.11.10",
     "@types/pica": "^9.0.1"
   }
 }
