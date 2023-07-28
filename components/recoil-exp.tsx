@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import {
   atom,
   selector,
@@ -17,6 +17,23 @@ const selector1 = selector({
   get: ({ get }) => {
     return get(atom1) + 1
   },
+})
+
+const selector2 = selector({
+  key: 'selector2',
+  get: ({ get }) => {
+    return Math.floor(get(selector1) / 10)
+  },
+})
+
+const InnerComponent = memo(() => {
+  const state = useRecoilValue(selector2)
+  console.log('Inner', { state })
+  return (
+    <div>
+      <p>selector2: {state}</p>
+    </div>
+  )
 })
 
 export const RecoilExp = () => {
@@ -45,7 +62,9 @@ export const RecoilExp = () => {
 
   return (
     <div>
-      <p>{state1}</p>
+      <p>atom1: {state1}</p>
+      <p>selector1: {state2}</p>
+      <InnerComponent />
       <button onClick={handleClick}>button</button>
     </div>
   )

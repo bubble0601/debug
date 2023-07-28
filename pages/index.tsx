@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default () => (
   <div>
     <h1>Index</h1>
@@ -15,6 +17,9 @@ export default () => (
     </p>
     <p>
       <a href="/recoil">Recoil</a>
+    </p>
+    <p>
+      <Link href="/line/leave">Line leave</Link>
     </p>
   </div>
 )

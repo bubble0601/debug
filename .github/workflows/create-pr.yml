@@ -1,0 +1,67 @@
+name: Automatically create pull request
+
+on:
+  push:
+    branches:
+      - prd
+      - stg
+
+jobs:
+  create_pr_to_stg:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/prd'
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Create Pull Request
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { ahead_by } } = await github.rest.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: 'stg',
+              head: 'prd',
+            });
+            if (ahead_by > 0) {
+              await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'PRD to STG',
+                base: 'stg',
+                head: 'prd',
+                body: 'Automatically created pull request',
+              });
+            }
+  create_pr_to_dev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/stg'
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Create Pull Request
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { ahead_by } } = await github.rest.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: 'main',
+              head: 'stg',
+            });
+            if (ahead_by > 0) {
+              await github.rest.pulls.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'STG to DEV',
+                base: 'main',
+                head: 'stg',
+                body: 'Automatically created pull request',
+              });
+            }
