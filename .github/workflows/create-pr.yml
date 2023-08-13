@@ -49,13 +49,26 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
+            //既にPRが出されていないか確認
+            const { data: pulls } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: 'stg',
+              base: 'main',
+            });
+            if (pulls.length > 0) {
+              return;
+            }
+
+
             const { data: { ahead_by } } = await github.rest.repos.compareCommits({
               owner: context.repo.owner,
               repo: context.repo.repo,
               base: 'main',
               head: 'stg',
             });
-            if (ahead_by > 0) {
+            if (ahead_by > 1) {
               await github.rest.pulls.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,

@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 export default () => (
   <div>
@@ -21,5 +21,8 @@ export default () => (
     <p>
       <Link href="/line/leave">Line leave</Link>
     </p>
+    <p>
+      <Link href="/lifecycle">Lifecycle</Link>
+    </p>
   </div>
-)
+);
