@@ -1,4 +1,4 @@
-import { Box, Paper, Stack } from '@mui/material'
+import { Box, Paper, Stack } from "@mui/material";
 import {
   ContentBlock,
   ContentState,
@@ -6,7 +6,7 @@ import {
   EditorState,
   Modifier,
   RichUtils,
-} from 'draft-js'
+} from "draft-js";
 import {
   forwardRef,
   ForwardRefRenderFunction,
@@ -14,29 +14,29 @@ import {
   useCallback,
   useImperativeHandle,
   useRef,
-} from 'react'
-import { useDraftjsPatch } from './patch'
-import { allStyleMap } from './style-map'
-import { WysiwygToolbar } from './toolbar'
+} from "react";
+import { useDraftjsPatch } from "./patch";
+import { allStyleMap } from "./style-map";
+import { WysiwygToolbar } from "./toolbar";
 
-const randomString = () => Math.random().toString(32).substring(2)
+const randomString = () => Math.random().toString(32).substring(2);
 
 interface WysiwygEditorHandles {
-  currentEditorState: EditorState // 関数の中からは最新のstateにアクセス出来ないので引数で受け取るようにする
+  currentEditorState: EditorState; // 関数の中からは最新のstateにアクセス出来ないので引数で受け取るようにする
   onAppendTextToCurrentPosition: (
     newState: EditorState,
     currentState: EditorState
-  ) => void
+  ) => void;
 }
 
 type Props = {
-  data: EditorState
-  onChange?: (data: EditorState) => void
-  readonly?: boolean
-  disabled?: boolean
-  variant?: 'outlined' | 'initial'
-  minHeight?: number
-}
+  data: EditorState;
+  onChange?: (data: EditorState) => void;
+  readonly?: boolean;
+  disabled?: boolean;
+  variant?: "outlined" | "initial";
+  minHeight?: number;
+};
 
 const WysiwygEditorComponent: ForwardRefRenderFunction<
   WysiwygEditorHandles,
@@ -47,33 +47,33 @@ const WysiwygEditorComponent: ForwardRefRenderFunction<
     onChange,
     readonly = false,
     disabled = false,
-    variant = 'outlined',
+    variant = "outlined",
     minHeight,
   },
   ref
 ) => {
-  const editorRef = useRef<Editor>(null)
+  const editorRef = useRef<Editor>(null);
 
   const focusEditor = useCallback(() => {
-    if (editorRef.current?.editor) editorRef.current.editor.focus()
-  }, [])
+    if (editorRef.current?.editor) editorRef.current.editor.focus();
+  }, []);
 
   const { patchToKeepStylesOnIMEInput } = useDraftjsPatch({
     editorRef,
     updateEditorState: (updater: (prev: EditorState) => EditorState) => {
-      onChange?.(updater(editorState))
+      onChange?.(updater(editorState));
     },
-  })
+  });
 
   const handleClickInlineStyle = (
     e: MouseEvent<HTMLSpanElement> | undefined,
     inlineStyle: string
   ) => {
     if (e) {
-      e.preventDefault()
+      e.preventDefault();
     }
-    onChange?.(RichUtils.toggleInlineStyle(editorState, inlineStyle))
-  }
+    onChange?.(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+  };
 
   const handleToggleGroupStyleItem = (
     e: MouseEvent<HTMLSpanElement> | undefined,
@@ -81,44 +81,46 @@ const WysiwygEditorComponent: ForwardRefRenderFunction<
     groupStyles: string[]
   ) => {
     if (e) {
-      e.preventDefault()
+      e.preventDefault();
     }
 
-    const otherStyles = groupStyles.filter((style) => style !== toggledStyle)
+    const otherStyles = groupStyles.filter((style) => style !== toggledStyle);
 
-    const selection = editorState.getSelection()
+    const selection = editorState.getSelection();
 
     const nextEditorState = RichUtils.toggleInlineStyle(
       editorState,
       toggledStyle
-    )
+    );
 
     if (selection.isCollapsed()) {
       const nextStyle = otherStyles.reduce(
         (styles, style) => (styles.has(style) ? styles.remove(style) : styles),
         nextEditorState.getCurrentInlineStyle()
-      )
+      );
 
-      onChange?.(EditorState.setInlineStyleOverride(nextEditorState, nextStyle))
+      onChange?.(
+        EditorState.setInlineStyleOverride(nextEditorState, nextStyle)
+      );
 
-      return
+      return;
     }
 
     const nextContentState = otherStyles.reduce(
       (contentState, style) =>
         Modifier.removeInlineStyle(contentState, selection, style),
       nextEditorState.getCurrentContent()
-    )
+    );
 
     onChange?.(
-      EditorState.push(nextEditorState, nextContentState, 'change-inline-style')
-    )
-  }
+      EditorState.push(nextEditorState, nextContentState, "change-inline-style")
+    );
+  };
 
   // テキストエリア変更発火時
   const handleChange = (newState: EditorState) => {
-    onChange?.(patchToKeepStylesOnIMEInput(editorState, newState))
-  }
+    onChange?.(patchToKeepStylesOnIMEInput(editorState, newState));
+  };
 
   /**
    * 外部からテキストに差し込みを行いたい場合
@@ -132,59 +134,62 @@ const WysiwygEditorComponent: ForwardRefRenderFunction<
       currentEditorState: editorState, // 関数の中からは最新のstateにアクセス出来ないので引数で受け取るようにする
       onAppendTextToCurrentPosition: (newState, currentState) => {
         // 渡されたデータ
-        const _contentState = newState.getCurrentContent()
-        const _blockMap = _contentState.getBlockMap()
+        const _contentState = newState.getCurrentContent();
+        const _blockMap = _contentState.getBlockMap();
 
         // 現在の状態
-        const contentState = currentState.getCurrentContent()
-        const blockMap = contentState.getBlockMap()
+        const contentState = currentState.getCurrentContent();
+        const blockMap = contentState.getBlockMap();
 
         // カーソル情報
-        const selectionState = editorState.getSelection()
-        const key = selectionState.getAnchorKey()
+        const selectionState = editorState.getSelection();
+        const key = selectionState.getAnchorKey();
 
         // 新しい状態の生成
         const newContentBlockArray = blockMap.reduce<ContentBlock[]>(
           (acc, block) => {
-            const result = acc ?? []
-            if (block) result.push(block)
+            const result = acc ?? [];
+            if (block) result.push(block);
 
             // current sectionの時に新しいデータを格納する
             if (block?.getKey() === key) {
               _blockMap.forEach((_block) => {
                 if (_block) {
-                  result.push(_block.set('key', randomString()) as ContentBlock)
+                  result.push(
+                    _block.set("key", randomString()) as ContentBlock
+                  );
                 }
-              })
+              });
             }
 
-            return result
+            return result;
           },
           []
-        )
+        );
 
         const newContentState =
-          ContentState.createFromBlockArray(newContentBlockArray)
+          ContentState.createFromBlockArray(newContentBlockArray);
         const newEditorState = EditorState.forceSelection(
           EditorState.createWithContent(newContentState),
           selectionState
-        )
+        );
 
-        onChange?.(newEditorState)
+        onChange?.(newEditorState);
       },
     }),
     [onChange, editorState]
-  )
+  );
 
   return (
     <Paper
       variant="outlined"
       sx={{
         p: 1,
-        ...(variant === 'initial' ? { border: 'none' } : {}),
+        ...(variant === "initial" ? { border: "none" } : {}),
+        height: "100%",
       }}
     >
-      <Stack spacing={1}>
+      <Stack spacing={1} height="100%">
         {!readonly && (
           <WysiwygToolbar
             editorState={editorState}
@@ -192,7 +197,7 @@ const WysiwygEditorComponent: ForwardRefRenderFunction<
             onChangeGroupStyle={handleToggleGroupStyleItem}
           />
         )}
-        <Box onClick={focusEditor} minHeight={minHeight}>
+        <Box onClick={focusEditor}>
           <Editor
             editorState={editorState}
             onChange={handleChange}
@@ -203,7 +208,7 @@ const WysiwygEditorComponent: ForwardRefRenderFunction<
         </Box>
       </Stack>
     </Paper>
-  )
-}
+  );
+};
 
-export const WysiwygEditor = forwardRef(WysiwygEditorComponent)
+export const WysiwygEditor = forwardRef(WysiwygEditorComponent);

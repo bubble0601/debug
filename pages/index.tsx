@@ -16,6 +16,9 @@ export default () => (
       <a href="/draft">Editor</a>
     </p>
     <p>
+      <a href="/tiptap">New Editor</a>
+    </p>
+    <p>
       <a href="/recoil">Recoil</a>
     </p>
     <p>

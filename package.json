@@ -13,10 +13,20 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.4",
+    "@tiptap/core": "^2.0.4",
+    "@tiptap/extension-color": "^2.0.4",
+    "@tiptap/extension-heading": "^2.0.4",
+    "@tiptap/extension-text-style": "^2.0.4",
+    "@tiptap/extension-underline": "^2.0.4",
+    "@tiptap/html": "^2.0.4",
+    "@tiptap/pm": "^2.0.4",
+    "@tiptap/react": "^2.0.4",
+    "@tiptap/starter-kit": "^2.0.4",
     "@types/node": "18.11.9",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
     "browser-image-compression": "^2.0.0",
+    "draft-convert": "^2.1.13",
     "draft-js": "^0.11.7",
     "exif-js": "^2.3.0",
     "exif-parser": "^0.1.12",
@@ -31,7 +41,10 @@
     "typescript": "4.8.4"
   },
   "devDependencies": {
+    "@types/draft-convert": "^2.1.4",
     "@types/draft-js": "^0.11.10",
-    "@types/pica": "^9.0.1"
+    "@types/jsdom": "^21.1.1",
+    "@types/pica": "^9.0.1",
+    "jsdom": "^22.1.0"
   }
 }
