@@ -1,0 +1,188 @@
+{
+  "blocks": [
+    {
+      "key": "1k7mt",
+      "text": "通常",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "rnl2",
+      "text": "太字",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 2,
+          "style": "BOLD"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "5dfc3",
+      "text": "斜体",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 2,
+          "style": "ITALIC"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "eus63",
+      "text": "下線",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 2,
+          "style": "UNDERLINE"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "en15q",
+      "text": "赤色青色",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 2,
+          "style": "red"
+        },
+        {
+          "offset": 2,
+          "length": 2,
+          "style": "blue"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "9li5g",
+      "text": "大文字1大文字2",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 4,
+          "style": "xxLarge"
+        },
+        {
+          "offset": 4,
+          "length": 4,
+          "style": "xLarge"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "4c7o4",
+      "text": "",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "9kttb",
+      "text": "あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら、うつくしい森で飾られたモリーオ市、郊外のぎらぎらひかる草の波。",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [
+        {
+          "offset": 0,
+          "length": 18,
+          "style": "xxLarge"
+        },
+        {
+          "offset": 2,
+          "length": 7,
+          "style": "yellow"
+        },
+        {
+          "offset": 2,
+          "length": 7,
+          "style": "ITALIC"
+        },
+        {
+          "offset": 45,
+          "length": 4,
+          "style": "ITALIC"
+        },
+        {
+          "offset": 10,
+          "length": 7,
+          "style": "UNDERLINE"
+        },
+        {
+          "offset": 54,
+          "length": 8,
+          "style": "UNDERLINE"
+        },
+        {
+          "offset": 16,
+          "length": 1,
+          "style": "blue"
+        },
+        {
+          "offset": 29,
+          "length": 2,
+          "style": "blue"
+        },
+        {
+          "offset": 17,
+          "length": 1,
+          "style": "BOLD"
+        },
+        {
+          "offset": 45,
+          "length": 5,
+          "style": "BOLD"
+        },
+        {
+          "offset": 61,
+          "length": 1,
+          "style": "BOLD"
+        },
+        {
+          "offset": 34,
+          "length": 6,
+          "style": "xLarge"
+        },
+        {
+          "offset": 61,
+          "length": 3,
+          "style": "xLarge"
+        },
+        {
+          "offset": 51,
+          "length": 14,
+          "style": "red"
+        }
+      ],
+      "entityRanges": [],
+      "data": {}
+    }
+  ],
+  "entityMap": {}
+}

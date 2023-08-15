@@ -90,7 +90,7 @@ const toTiptapData = (src: EditorState | undefined): Content => {
 
 const main = async () => {
   const data = EditorState.createWithContent(
-    convertFromRaw((await import("./data_5.json")) as any)
+    convertFromRaw((await import("./sample.json")) as any)
   );
   const tiptapData = toTiptapData(data);
   console.log(tiptapData);
