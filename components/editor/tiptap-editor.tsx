@@ -69,7 +69,7 @@ const toTiptapData = (src: EditorState | undefined): Content => {
     },
   })(src.getCurrentContent());
 
-  console.log(html);
+  // console.log(html);
 
   const raw = generateJSON(html, [
     StarterKit,
@@ -114,6 +114,9 @@ export const TiptapEditor = ({ value, readonly = false }: Props) => {
       attributes: {
         spellcheck: "false",
       },
+    },
+    onUpdate: ({ editor }) => {
+      console.log(editor.getJSON());
     },
   });
 
