@@ -47,7 +47,11 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
   ) => {
     event.preventDefault();
     setColorAnchorEl(null);
-    editor?.commands.setColor(color);
+    if (editor?.isActive("textStyle", { color })) {
+      editor?.chain().unsetColor().focus().run();
+    } else {
+      editor?.chain().setColor(color).focus().run();
+    }
   };
 
   const handleClickFontSize = (
@@ -56,7 +60,11 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
   ) => {
     event.preventDefault();
     setFontSizeAnchorEl(null);
-    editor?.commands.toggleMark("heading", { level: fontSize });
+    if (editor?.isActive("textStyle", { fontSize })) {
+      editor?.chain().unsetFontSize().focus().run();
+    } else {
+      editor?.chain().setFontSize(fontSize).focus().run();
+    }
   };
 
   return (
@@ -65,7 +73,10 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
         <ToggleButton
           value="bold"
           selected={editor?.isActive("bold")}
-          onMouseDown={() => editor?.commands.toggleBold()}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            editor?.chain().toggleBold().focus().run();
+          }}
         >
           <Tooltip title={"太字"}>
             <FormatBoldIcon />
@@ -74,7 +85,10 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
         <ToggleButton
           value="italic"
           selected={editor?.isActive("italic")}
-          onMouseDown={() => editor?.commands.toggleItalic()}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            editor?.chain().toggleItalic().focus().run();
+          }}
         >
           <Tooltip title={"斜体"}>
             <FormatItalicIcon />
@@ -83,7 +97,10 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
         <ToggleButton
           selected={editor?.isActive("underline")}
           value="underlined"
-          onMouseDown={() => editor?.commands.toggleUnderline()}
+          onMouseDown={(e) => {
+            e.preventDefault();
+            editor?.chain().toggleUnderline().focus().run();
+          }}
         >
           <Tooltip title={"下線"}>
             <FormatUnderlinedIcon />
@@ -99,10 +116,8 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
           <Tooltip title={"色"}>
             <FormatColorTextIcon
               style={{
-                color: colors.find(
-                  (color) =>
-                    editor?.isActive("textStyle", { color: color.color }) ||
-                    editor?.isActive("textStyle", { color: toRGB(color.color) })
+                color: colors.find((color) =>
+                  editor?.isActive("textStyle", { color: color.color })
                 )?.color,
               }}
             />
@@ -148,15 +163,11 @@ export const TiptapToolbar = ({ editor }: { editor: Editor | null }) => {
                 >
                   <LensIcon
                     sx={{
-                      stroke:
-                        editor?.isActive("textStyle", {
-                          color: colorObj.color,
-                        }) ||
-                        editor?.isActive("textStyle", {
-                          color: toRGB(colorObj.color),
-                        })
-                          ? (theme) => theme.palette.action.selected
-                          : "white",
+                      stroke: editor?.isActive("textStyle", {
+                        color: colorObj.color,
+                      })
+                        ? (theme) => theme.palette.action.selected
+                        : "white",
                       strokeWidth: 4,
                     }}
                   />

@@ -1,0 +1,353 @@
+{
+  "type": "doc",
+  "content": [
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "text": "通常"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "太字"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "italic"
+            }
+          ],
+          "text": "斜体"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "下線"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": null
+              }
+            }
+          ],
+          "text": "赤色"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#2196f3",
+                "fontSize": null
+              }
+            }
+          ],
+          "text": "青色"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "xx-large"
+              }
+            }
+          ],
+          "text": "大文字1"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "x-large"
+              }
+            }
+          ],
+          "text": "大文字2"
+        }
+      ]
+    },
+    {
+      "type": "paragraph"
+    },
+    {
+      "type": "paragraph",
+      "content": [
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "xx-large"
+              }
+            }
+          ],
+          "text": "あの"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "italic"
+            },
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#ffeb3b",
+                "fontSize": "xx-large"
+              }
+            }
+          ],
+          "text": "イーハトーヴォ"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "xx-large"
+              }
+            }
+          ],
+          "text": "の"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "xx-large"
+              }
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "すきとおった"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#2196f3",
+                "fontSize": "xx-large"
+              }
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "風"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "xx-large"
+              }
+            }
+          ],
+          "text": "、"
+        },
+        {
+          "type": "text",
+          "text": "夏でも底に冷たさをもつ"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#2196f3",
+                "fontSize": null
+              }
+            }
+          ],
+          "text": "青い"
+        },
+        {
+          "type": "text",
+          "text": "そら、"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": null,
+                "fontSize": "x-large"
+              }
+            }
+          ],
+          "text": "うつくしい森"
+        },
+        {
+          "type": "text",
+          "text": "で飾られた"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "italic"
+            }
+          ],
+          "text": "モリーオ"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            }
+          ],
+          "text": "市"
+        },
+        {
+          "type": "text",
+          "text": "、"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": null
+              }
+            }
+          ],
+          "text": "郊外の"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": null
+              }
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "ぎらぎらひかる"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "bold"
+            },
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": "x-large"
+              }
+            },
+            {
+              "type": "underline"
+            }
+          ],
+          "text": "草"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": "x-large"
+              }
+            }
+          ],
+          "text": "の波"
+        },
+        {
+          "type": "text",
+          "marks": [
+            {
+              "type": "textStyle",
+              "attrs": {
+                "color": "#f44336",
+                "fontSize": null
+              }
+            }
+          ],
+          "text": "。"
+        }
+      ]
+    }
+  ]
+}

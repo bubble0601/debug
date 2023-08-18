@@ -1,0 +1,14 @@
+{
+  "blocks": [
+    {
+      "key": "fv3uf",
+      "text": "改行が変なところに\n\r\nあるデータ\r\n\n",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    }
+  ],
+  "entityMap": {}
+}

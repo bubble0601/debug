@@ -1,0 +1,59 @@
+{
+  "blocks": [
+    {
+      "key": "fv4uf",
+      "text": "タブ文字が含まれている\tデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "fw4uf",
+      "text": "タブ\t文字が\t含まれている\tデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "fw5uf",
+      "text": "タブ\t文字が\t含まれている\tデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "fw6uf",
+      "text": "タブ\t文字が\t含まれている\tデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "fw7uf",
+      "text": "タブ文字が含まれているデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    },
+    {
+      "key": "fw8uf",
+      "text": "タブ\t文字が\t含まれている\tデータ",
+      "type": "unstyled",
+      "depth": 0,
+      "inlineStyleRanges": [],
+      "entityRanges": [],
+      "data": {}
+    }
+  ],
+  "entityMap": {}
+}

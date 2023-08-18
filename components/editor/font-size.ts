@@ -1,4 +1,3 @@
-// import "@tiptap/extension-text-style";
 import { Extension } from "@tiptap/core";
 
 export type FontSizeOptions = {
@@ -20,22 +19,6 @@ declare module "@tiptap/core" {
   }
 }
 
-const recursiveGetStyle = (
-  element: HTMLElement | null,
-  styleName: string
-): string | undefined => {
-  if (!element) {
-    return undefined;
-  }
-
-  const value = element.style.getPropertyValue(styleName);
-  if (value !== "") {
-    return value;
-  }
-
-  return recursiveGetStyle(element.parentElement, styleName);
-};
-
 export const FontSize = Extension.create<FontSizeOptions>({
   name: "fontSize",
 
@@ -52,9 +35,9 @@ export const FontSize = Extension.create<FontSizeOptions>({
         attributes: {
           fontSize: {
             default: null,
-            parseHTML: (element) => recursiveGetStyle(element, "font-size"),
+            parseHTML: (element) => element.style.fontSize,
             renderHTML: (attributes) => {
-              if (!attributes.fontSize) {
+              if (attributes.fontSize == null) {
                 return {};
               }
 

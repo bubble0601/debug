@@ -1,4 +1,4 @@
-import { blue, red, yellow } from "@mui/material/colors";
+import { blue, green, orange, pink, red, yellow } from "@mui/material/colors";
 
 function sliceByNumber<T>(array: T[], number: number): T[][] {
   const length = Math.ceil(array.length / number);
@@ -12,8 +12,10 @@ export const colors: { name: string; color: string }[] = [
   { name: "red", color: red[500] },
   { name: "blue", color: blue[500] },
   { name: "yellow", color: yellow[500] },
+  { name: "orange", color: orange[500] },
+  { name: "pink", color: pink[500] },
+  { name: "green", color: green[500] },
 ];
-
 export const colorStyles: string[] = colors.map((colorObj) => colorObj.name);
 
 export const colorTable = sliceByNumber(colors, 4);
@@ -42,7 +44,7 @@ export const fontSizeStyles: string[] = fontSizes.map(
 );
 
 export const fontSizeStyleMap = fontSizes.reduce(
-  (acc: { [key: string]: { fontSize: string | undefined } }, fontSizeObj) => {
+  (acc: { [key: string]: { fontSize: string } }, fontSizeObj) => {
     // eslint-disable-next-line no-param-reassign
     acc[fontSizeObj.name] = { fontSize: fontSizeObj.size };
     return acc;
