@@ -14,6 +14,16 @@ import { useEffect } from "react";
 const StyledEditorContent = styled(EditorContent)(() => ({
   "& .ProseMirror": {
     outline: "unset",
+    fontFamily: [
+      "Helvetica Neue",
+      "Arial",
+      "Hiragino Kaku Gothic ProN",
+      "Hiragino Sans",
+      "Meiryo",
+      "sans-serif",
+      "Roboto",
+      "Noto Sans JP",
+    ].join(","),
   },
   "& p": {
     margin: 0,
