@@ -1,20 +1,26 @@
 import { Box, Paper, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { Content, JSONContent, generateHTML } from "@tiptap/core";
+import { JSONContent, generateHTML } from "@tiptap/core";
+import { Color } from "@tiptap/extension-color";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { Color } from "@tiptap/extension-color";
+import { useEffect } from "react";
+import { notoSansJp } from "../../pages/_app";
 import { FontSize } from "./font-size";
 import { IMESupport } from "./ime-support";
 import { TiptapToolbar } from "./tiptap-toolbar";
-import { useEffect } from "react";
+
+const isWindows =
+  typeof window !== "undefined"
+    ? navigator.userAgent.toLowerCase().includes("windows nt")
+    : false;
 
 const StyledEditorContent = styled(EditorContent)(() => ({
   "& .ProseMirror": {
     outline: "unset",
-    fontFamily: "Noto Sans JP, sans-serif",
+    ...(isWindows ? notoSansJp.style : undefined),
   },
   "& p": {
     margin: 0,
@@ -29,7 +35,27 @@ type Props = {
 
 export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
   const editor = useEditor({
-    extensions: [StarterKit, TextStyle, Color, FontSize, Underline, IMESupport],
+    extensions: [
+      StarterKit.configure({
+        blockquote: false,
+        bulletList: false,
+        code: false,
+        codeBlock: false,
+        dropcursor: false,
+        gapcursor: false,
+        hardBreak: false,
+        heading: false,
+        horizontalRule: false,
+        listItem: false,
+        orderedList: false,
+        strike: false,
+      }),
+      TextStyle,
+      Color,
+      FontSize,
+      Underline,
+      IMESupport,
+    ],
     content: value,
     editable: !readonly,
     editorProps: {
