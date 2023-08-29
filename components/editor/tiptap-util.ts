@@ -145,8 +145,11 @@ const split = (text: string, draftStyles: RawDraftInlineStyleRange[]) => {
     return [];
   }
 
+  // Array.fromでサロゲートペアを考慮して分割する
+  // text.split('')はサロゲートペアを分割してしまう
+  const chars = Array.from(text);
   // 文字のindexに対応するスタイル(i番目の文字のスタイルはcharStyles[i]に格納される)
-  const charStyles: string[][] = text.split("").map(() => []);
+  const charStyles: string[][] = chars.map(() => []);
   draftStyles.forEach((style) => {
     for (let i = style.offset; i < style.offset + style.length; i++) {
       charStyles[i]!.push(style.style);
@@ -155,10 +158,10 @@ const split = (text: string, draftStyles: RawDraftInlineStyleRange[]) => {
 
   // スタイルごとにグループ化する
   const result = [];
-  let currentText = text[0]!;
+  let currentText = chars[0]!; // text[0]だとサロゲートペアが分割されてしまう
   let currentStyles = charStyles[0]!;
-  for (let i = 1; i < text.length; i++) {
-    const char = text[i]!;
+  for (let i = 1; i < chars.length; i++) {
+    const char = chars[i]!;
     const styles = charStyles[i]!;
 
     if (
