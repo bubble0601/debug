@@ -1,4 +1,4 @@
-import { Box, Paper, Stack } from "@mui/material";
+import { Box, Button, Paper, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { JSONContent, generateHTML } from "@tiptap/core";
 import { Color } from "@tiptap/extension-color";
@@ -11,6 +11,8 @@ import { notoSansJp } from "../../pages/_app";
 import { FontSize } from "./font-size";
 import { IMESupport } from "./ime-support";
 import { TiptapToolbar } from "./tiptap-toolbar";
+import { UniqueId } from "./unique-id";
+import { EditorState } from "@tiptap/pm/state";
 
 const isWindows =
   typeof window !== "undefined"
@@ -55,6 +57,7 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
       FontSize,
       Underline,
       IMESupport,
+      UniqueId,
     ],
     content: value,
     editable: !readonly,
@@ -79,6 +82,48 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
     }
   }, [value]);
 
+  const handleInsert = () => {
+    if (editor == null) return;
+    editor
+      .chain()
+      .focus()
+      .insertContent({
+        type: "doc",
+        content: [
+          {
+            type: "paragraph",
+            attrs: {
+              nodeId: "test",
+            },
+            content: [
+              {
+                type: "text",
+                text: "Hello World!",
+              },
+            ],
+          },
+          {
+            type: "paragraph",
+            attrs: {
+              nodeId: "test2",
+            },
+            content: [
+              {
+                type: "text",
+                text: "Hello World!",
+                marks: [
+                  {
+                    type: "underline",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      })
+      .run();
+  };
+
   return (
     <Paper
       variant="outlined"
@@ -88,6 +133,7 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
         height: "100%",
       }}
     >
+      <Button onClick={handleInsert}>insert</Button>
       <Stack
         spacing={1}
         height="100%"
