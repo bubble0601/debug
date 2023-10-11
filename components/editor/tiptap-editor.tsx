@@ -6,13 +6,14 @@ import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { notoSansJp } from "../../pages/_app";
 import { FontSize } from "./font-size";
 import { IMESupport } from "./ime-support";
 import { TiptapToolbar } from "./tiptap-toolbar";
 import { UniqueId } from "./unique-id";
 import { EditorState } from "@tiptap/pm/state";
+import { SafariWorkaround } from "./safari-workaround";
 
 const isWindows =
   typeof window !== "undefined"
@@ -58,6 +59,7 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
       Underline,
       IMESupport,
       UniqueId,
+      SafariWorkaround,
     ],
     content: value,
     editable: !readonly,
@@ -82,48 +84,6 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
     }
   }, [value]);
 
-  const handleInsert = () => {
-    if (editor == null) return;
-    editor
-      .chain()
-      .focus()
-      .insertContent({
-        type: "doc",
-        content: [
-          {
-            type: "paragraph",
-            attrs: {
-              nodeId: "test",
-            },
-            content: [
-              {
-                type: "text",
-                text: "Hello World!",
-              },
-            ],
-          },
-          {
-            type: "paragraph",
-            attrs: {
-              nodeId: "test2",
-            },
-            content: [
-              {
-                type: "text",
-                text: "Hello World!",
-                marks: [
-                  {
-                    type: "underline",
-                  },
-                ],
-              },
-            ],
-          },
-        ],
-      })
-      .run();
-  };
-
   return (
     <Paper
       variant="outlined"
@@ -133,7 +93,6 @@ export const TiptapEditor = ({ value, readonly = false, onChange }: Props) => {
         height: "100%",
       }}
     >
-      <Button onClick={handleInsert}>insert</Button>
       <Stack
         spacing={1}
         height="100%"

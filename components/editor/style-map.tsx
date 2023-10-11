@@ -8,7 +8,7 @@ function sliceByNumber<T>(array: T[], number: number): T[][] {
 }
 
 export const colors: { name: string; color: string }[] = [
-  { name: "black", color: "black" },
+  { name: "black", color: "#000000" },
   { name: "red", color: red[500] },
   { name: "blue", color: blue[500] },
   { name: "yellow", color: yellow[500] },
