@@ -1,4 +1,4 @@
-import { Box, Button, Paper, Stack } from "@mui/material";
+import { Box, Paper, Stack } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { JSONContent, generateHTML } from "@tiptap/core";
 import { Color } from "@tiptap/extension-color";
@@ -12,7 +12,6 @@ import { FontSize } from "./font-size";
 import { IMESupport } from "./ime-support";
 import { TiptapToolbar } from "./tiptap-toolbar";
 import { UniqueId } from "./unique-id";
-import { EditorState } from "@tiptap/pm/state";
 import { SafariWorkaround } from "./safari-workaround";
 
 const isWindows =

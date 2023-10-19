@@ -17,8 +17,6 @@ export const SafariWorkaround = Extension.create<Record<string, never>>({
         props: {
           handleDOMEvents: {
             beforeinput: (_, event) => {
-              // console.log("beforeinput", event);
-              // return false;
               if (event.inputType !== "deleteCompositionText") {
                 return false;
               }
@@ -40,7 +38,6 @@ export const SafariWorkaround = Extension.create<Record<string, never>>({
                 startOffset === 0 &&
                 endOffset === startContainer.length
               ) {
-                console.log("insert");
                 startContainer.parentElement?.insertBefore(
                   document.createTextNode("\u200b"),
                   startContainer
