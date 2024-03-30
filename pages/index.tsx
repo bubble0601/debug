@@ -4,22 +4,22 @@ export default () => (
   <div>
     <h1>Index</h1>
     <p>
-      <a href="/image/device-orientation">Device orientation</a>
+      <Link href="/image/device-orientation">Device orientation</Link>
     </p>
     <p>
-      <a href="/image/exif">Exif</a>
+      <Link href="/image/exif">Exif</Link>
     </p>
     <p>
-      <a href="/camera">Camera</a>
+      <Link href="/camera">Camera</Link>
     </p>
     <p>
-      <a href="/draft">Editor</a>
+      <Link href="/draft">Editor</Link>
     </p>
     <p>
-      <a href="/tiptap">New Editor</a>
+      <Link href="/tiptap">New Editor</Link>
     </p>
     <p>
-      <a href="/recoil">Recoil</a>
+      <Link href="/recoil">Recoil</Link>
     </p>
     <p>
       <Link href="/line/leave">Line leave</Link>
@@ -32,6 +32,9 @@ export default () => (
     </p>
     <p>
       <Link href="/pdf">PDF</Link>
+    </p>
+    <p>
+      <Link href="/dynamic/hoge">Dynamic</Link>
     </p>
   </div>
 );
