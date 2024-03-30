@@ -27,5 +27,11 @@ export default () => (
     <p>
       <Link href="/lifecycle">Lifecycle</Link>
     </p>
+    <p>
+      <Link href="/ua">UA</Link>
+    </p>
+    <p>
+      <Link href="/pdf">PDF</Link>
+    </p>
   </div>
 );

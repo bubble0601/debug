@@ -1,4 +1,3 @@
-import { Theme, useMediaQuery } from "@mui/material";
 import { Child } from "../../components/child";
 import { Parent } from "../../components/parent";
 
