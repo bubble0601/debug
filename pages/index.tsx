@@ -36,5 +36,14 @@ export default () => (
     <p>
       <Link href="/dynamic/hoge">Dynamic</Link>
     </p>
+    <p>
+      <Link href="/cc">Credit card</Link>
+    </p>
+    <p>
+      <Link href="/abc">ABC</Link>
+    </p>
+    <p>
+      <Link href="/height">HEIGHT</Link>
+    </p>
   </div>
 );
