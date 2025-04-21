@@ -40,10 +40,10 @@ export default () => (
       <Link href="/cc">Credit card</Link>
     </p>
     <p>
-      <Link href="/abc">ABC</Link>
+      <Link href="/height">HEIGHT</Link>
     </p>
     <p>
-      <Link href="/height">HEIGHT</Link>
+      <Link href="/puck">Puck</Link>
     </p>
   </div>
 );
