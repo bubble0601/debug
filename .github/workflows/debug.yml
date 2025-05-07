@@ -15,7 +15,7 @@ jobs:
       # - name: Dump
       #   uses: crazy-max/ghaction-dump-context@v2
       - name: Hello
-        run: bash ./.github/run.sh
+        run: ./.github/run.sh
       # - name: 'Post Comment (End)'
       #   uses: actions/github-script@v4
       #   env:
